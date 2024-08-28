@@ -24,9 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import components.HouseRule
-import scripts.data.exclusiveRules
-import scripts.data.officialRules
-import scripts.data.unofficialRules
+import scripts.data.houseRules
 
 @Composable
 fun HouseRulesScreen() {
@@ -40,14 +38,14 @@ fun HouseRulesScreen() {
         if (expanded) Icons.Outlined.KeyboardArrowUp else Icons.Outlined.KeyboardArrowDown
 
     // static
-    val values = listOf("oficiales", "exclusivas", "no officiales")
+    val options = listOf("oficiales", "exclusivas", "no oficiales")
 
     // val rulesSection = if (ruleTitle == "oficiales") officialRules else unofficialRules
-    val rulesSection = when(ruleTitle) {
+    /* val rulesSection = when(ruleTitle) {
         "oficiales" -> officialRules
         "exclusivas" -> exclusiveRules
         else -> unofficialRules
-    }
+    } */
 
     // styles
     val dropdownStyles = Modifier
@@ -66,7 +64,7 @@ fun HouseRulesScreen() {
                 onDismissRequest = { expanded = false },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                values.forEachIndexed { i, it ->
+                options.forEachIndexed { i, it ->
                     DropdownMenuItem(
                         leadingIcon = { Text("${i + 1})") },
                         text = { Text(it) },
@@ -80,7 +78,9 @@ fun HouseRulesScreen() {
         }
 
         LazyColumn(state = state) {
-            items(rulesSection) { (title, desc) ->
+            val rules = houseRules[ruleTitle]!!.toList()
+
+            items(rules) { (title, desc) ->
                 HouseRule(title, desc)
             }
         }

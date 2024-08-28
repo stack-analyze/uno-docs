@@ -28,8 +28,8 @@ val wildcards = listOf(
             el siguiente jugador toma 2 cartas y pierde su turno.
         para los uno flip y express se aplica lo siguiente:
             sí no te desafia robas 2 cartas y pierdes el turno.
-            sí tu sospecha era cierta el jugador que tiro el comodin toma 2 va tomar las 2 cartas en su lugar.
-            sí tu sospecha era falsa en lugar de 2 toma 4 y pierden el turno.
+            sí ganas el desafio el jugador que tiro el comodin toma 2 va tomar las 2 cartas en su lugar.
+            sí pierdes el desafio toma 4 y pierden el turno.
         """.trimIndent(),
         card = { CardImage(drawable.comodin_toma2) }
     ),
@@ -40,8 +40,8 @@ val wildcards = listOf(
             el siguiente jugador toma 4 cartas y pierde su turno.
         para el resto de los uno excepto flip, junior y express se aplica el modo desafio:
             sí no te desafia robas 4 cartas y pierdes el turno.
-            sí tu sospecha era cierta el jugador que tiro el comodin toma 4 va tomar las 4 cartas en su lugar.
-            sí tu sospecha era falsa en lugar de 4 toma 6 y pierden el turno.
+            sí ganas el desafio el jugador que tiro el comodin toma 4 va tomar las 4 cartas en su lugar.
+            sí pierdes el desafio toma 6 y pierden el turno.
         """.trimIndent(),
         card = { CardImage(drawable.comodin_toma4) }
     ),
@@ -90,8 +90,8 @@ val wildcards = listOf(
         desc = """
         esta carta es exclusivo de uno flip:
             sí no te desafia robas cartas hasta que le salga el color eligido y pierdes el turno.
-            sí tu sospecha era cierta el jugador que tiro el comodin toma un color va tomar ese castigo en su lugar.
-            sí tu sospecha era falsa vas a cartas hasta que le salga el color que se selecciono mas 2 cartas extra y pierden el turno.
+            sí ganas el desafio el jugador que tiro el comodin toma un color va tomar ese castigo en su lugar.
+            sí pierdes el desafio vas a cartas hasta que le salga el color que se selecciono mas 2 cartas extra y pierden el turno.
         """.trimIndent(),
         card = { CardImage(drawable.comodin_toma_un_color) }
     ),
@@ -114,7 +114,7 @@ val wildcards = listOf(
         card = { CardImage(drawable.comodin_todos_toman) }
     ),
     Cards(
-        title = "comodìn flex elige toma 2",
+        title = "comodìn flex toma 2 focalizado",
         desc = """
         esta carta es exclusivo de uno flex:
             lado regular: exactamente igual al comodìn multicolor.
@@ -123,7 +123,7 @@ val wildcards = listOf(
         card = { CardImage(drawable.comodin_toma2_focalizada) }
     ),
     Cards(
-        title = "comodìn flex elige toma 4",
+        title = "comodìn flex toma 4",
         desc = """
         esta carta es exclusivo de uno flex:
             lado regular: exactamente igual al comodìn toma 4.
