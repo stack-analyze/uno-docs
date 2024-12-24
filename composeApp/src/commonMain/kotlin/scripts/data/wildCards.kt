@@ -5,6 +5,7 @@ import scripts.model.Cards
 import unodocs.composeapp.generated.resources.Res.drawable
 import unodocs.composeapp.generated.resources.comodin_elige_toma2
 import unodocs.composeapp.generated.resources.comodin_intercambio
+import unodocs.composeapp.generated.resources.comodin_personalizable
 import unodocs.composeapp.generated.resources.comodin_reversa
 import unodocs.composeapp.generated.resources.comodin_reversa_toma4
 import unodocs.composeapp.generated.resources.comodin_ruleta_de_color
@@ -21,6 +22,17 @@ import unodocs.composeapp.generated.resources.comodin_toma6
 import unodocs.composeapp.generated.resources.comodin_toma_un_color
 
 val wildcards = listOf(
+    Cards(
+        title = "comodín personalizado",
+        desc = """
+        aparece en el uno tradicional de 2005 en adelante y pocos uno de estilo como el super mario.
+            1) cambiar el color de la parte
+            2) le puedes asignar una regla personalizada:
+                a) robar 5 cartas "ejemplo"
+                b) imunidad al cartigo de robar cartas "ejemplo"
+        """.trimIndent(),
+        card = { CardImage(drawable.comodin_personalizable) }
+    ),
     Cards(
         title = "comodìn toma 2",
         desc = """

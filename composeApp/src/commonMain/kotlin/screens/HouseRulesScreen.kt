@@ -40,13 +40,6 @@ fun HouseRulesScreen() {
     // static
     val options = listOf("oficiales", "exclusivas", "no oficiales")
 
-    // val rulesSection = if (ruleTitle == "oficiales") officialRules else unofficialRules
-    /* val rulesSection = when(ruleTitle) {
-        "oficiales" -> officialRules
-        "exclusivas" -> exclusiveRules
-        else -> unofficialRules
-    } */
-
     // styles
     val dropdownStyles = Modifier
         .clickable { expanded = true }
@@ -78,7 +71,7 @@ fun HouseRulesScreen() {
         }
 
         LazyColumn(state = state) {
-            val rules = houseRules[ruleTitle]!!.toList()
+            val rules = houseRules[ruleTitle]!!
 
             items(rules) { (title, desc) ->
                 HouseRule(title, desc)

@@ -24,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
@@ -32,37 +33,27 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
-import org.jetbrains.compose.resources.DrawableResource
-import org.jetbrains.compose.resources.painterResource
-import unodocs.composeapp.generated.resources.Res.drawable
-
-import unodocs.composeapp.generated.resources.ic_action_cards
-import unodocs.composeapp.generated.resources.ic_colorblind
-import unodocs.composeapp.generated.resources.ic_common
-import unodocs.composeapp.generated.resources.ic_house_rules
-import unodocs.composeapp.generated.resources.ic_unique
-import unodocs.composeapp.generated.resources.ic_wild
 
 sealed class NavigationScreen(
     val title: String,
     val route: String,
-    val icon: DrawableResource,
+    val icon: ImageVector,
 ) {
-    data object Home : NavigationScreen("reglas comunes", "home", drawable.ic_common)
+    data object Home : NavigationScreen("reglas comunes", "home", icons.ic_common)
 
     data object Colorblind :
-        NavigationScreen("guia para daltonicos", "colorblind", drawable.ic_colorblind)
+        NavigationScreen("guia para daltonicos", "colorblind", icons.ic_colorblind)
 
     data object ActionCards :
-        NavigationScreen("cartas de acciòn", "action_cards", drawable.ic_action_cards)
+        NavigationScreen("cartas de acciòn", "action_cards", icons.ic_action_cards)
 
-    data object WildCards : NavigationScreen("comodines", "wild_cards", drawable.ic_wild)
+    data object WildCards : NavigationScreen("comodines", "wild_cards", icons.ic_wild)
 
     data object StyleWildCards :
-        NavigationScreen("comodines de estilo", "style_wild_cards", drawable.ic_unique)
+        NavigationScreen("comodines de estilo", "style_wild_cards", icons.ic_unique)
 
     data object HouseRules :
-        NavigationScreen("reglas de la casa", "house_rules", drawable.ic_house_rules)
+        NavigationScreen("reglas de la casa", "house_rules", icons.ic_house_rules)
 }
 
 @Composable
@@ -115,7 +106,7 @@ fun MainScreen() {
                     NavigationDrawerItem(
                         label = { Text(screen.title) },
                         selected = currentDestination?.hierarchy?.any { it.route == screen.route } == true,
-                        icon = { Icon(painterResource(screen.icon),null) },
+                        icon = { Icon(screen.icon,null) },
                         onClick = {
                             navController.navigate(screen.route) {
                                 launchSingleTop = true

@@ -1,11 +1,11 @@
 package scripts.model
 
-import org.jetbrains.compose.resources.DrawableResource
+import androidx.compose.ui.graphics.vector.ImageVector
 
 
 data class ColorblindInfo(
     val colorName: String,
-    val image: DrawableResource,
+    val image: ImageVector,
     val origin: String,
 )
 
