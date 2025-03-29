@@ -54,6 +54,9 @@ sealed class NavigationScreen(
 
     data object HouseRules :
         NavigationScreen("reglas de la casa", "house_rules", icons.ic_house_rules)
+
+    data object WildTwists :
+            NavigationScreen("wild twists", "wild_twists", icons.ic_wild_twists)
 }
 
 @Composable
@@ -68,6 +71,7 @@ fun NavGraph(navController: NavHostController, modifier: Modifier) {
         composable(NavigationScreen.WildCards.route) { WildCardsScreen() }
         composable(NavigationScreen.StyleWildCards.route) { WildStyleCardsScreen() }
         composable(NavigationScreen.HouseRules.route) { HouseRulesScreen() }
+        composable(NavigationScreen.WildTwists.route) { WildTwistsScreen() }
     }
 }
 
@@ -78,6 +82,7 @@ val screens = listOf(
     NavigationScreen.WildCards,
     NavigationScreen.StyleWildCards,
     NavigationScreen.HouseRules,
+    NavigationScreen.WildTwists
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
